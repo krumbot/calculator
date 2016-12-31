@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
+import { Card, CardSection } from './common';
 
 class Calculator extends Component {
 	render() {
 		return (
-			<View>
-				<Text> Hey! </Text>
-			</View>
+			<Card>
+				<CardSection>
+					<Text> This is where the input is shown! </Text>
+				</CardSection>
+
+				<CardSection>
+					<Text> This is where the buttons will go! </Text>
+				</CardSection>
+			</Card>
 		);
 	}
 }
