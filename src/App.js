@@ -14,7 +14,7 @@ class App extends Component {
 			<Provider store={store}>
 				<RouterComponent />
 			</Provider>
-		);		
+		);
 	}
 }
 
