@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
 import { Card, CardSection } from './common';
 import InputSection from './InputSection';
 import ButtonSection from './ButtonSection';
@@ -7,8 +6,8 @@ import ButtonSection from './ButtonSection';
 class Calculator extends Component {
 	render() {
 		return (
-			<Card style={{ flex: 1, flexDirection: 'column'}}>
-				<CardSection>
+			<Card style={{ flex: 1, flexDirection: 'column' }}>
+				<CardSection style={{ flex: 1 }}>
 					<InputSection />
 				</CardSection>
 
@@ -16,7 +15,7 @@ class Calculator extends Component {
 				style={{
 						flexDirection: 'column', 
 						justifyContent: 'flex-end',
-						flex: 1,
+						flex: 5,
 						position: 'relative',
 					}}
 				>

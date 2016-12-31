@@ -45,7 +45,7 @@ const styles = {
 	containerStyle: {
 		flexDirection: 'row',
 		position: 'relative',
-		justifyContent: 'space-between',
+		justifyContent: 'space-around',
 		flex: 1
 	},
 	rightRowStyle: {

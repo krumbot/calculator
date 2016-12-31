@@ -2,7 +2,6 @@ import React from 'react';
 import { View } from 'react-native';
 
 const ButtonRow = ({ children, style }) => {
-	console.log(children);
 	return (
 		<View style={[styles.buttonRowStyle, style]}>
 			{children}
