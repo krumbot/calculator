@@ -1,10 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
 
-const ButtonRow = ({ children }) => {
+const ButtonRow = ({ children, style }) => {
 	console.log(children);
 	return (
-		<View style={styles.buttonRowStyle}>
+		<View style={[styles.buttonRowStyle, style]}>
 			{children}
 		</View>
 
@@ -13,10 +13,11 @@ const ButtonRow = ({ children }) => {
 
 const styles = {
 	buttonRowStyle: {
-		flexDirection: 'row',
+		flexDirection: 'column',
 		flexWrap: 'wrap',
 		justifyContent: 'space-between',
-		flex: 1
+		flex: 1,
+		backgroundColor: '#f2f2f2'
 	}
 };
 

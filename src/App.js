@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore} from 'redux';
 import RouterComponent from './Router';
 // import ReduxThunk from 'redux-thunk'; 
 // import firebase from 'firebase';

@@ -8,7 +8,7 @@ class CalcButton extends Component {
 		console.log(textStyle);
 		return (
 			<TouchableOpacity 
-				style={buttonStyle}
+				style={[buttonStyle, this.props.style]}
 				onPress={() => console.log(`${buttonDisplay} was pressed!`)}
 			>
 				<Text style={textStyle}> 
@@ -21,13 +21,12 @@ class CalcButton extends Component {
 
 const styles = {
 	buttonStyle: {
-		borderRadius: 5,
-		borderWidth: 1,
-		borderColor: '#007aff',
 		paddingTop: 2,
 		paddingBottom: 2,
 		flexDirection: 'row',
-		flex: 1
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center'
 	},
 	textStyle: {
 		fontSize: 24,

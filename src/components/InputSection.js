@@ -7,6 +7,7 @@ class InputSection extends Component {
 		return (
 			<View style={containerStyle}>
 				<TextInput 
+					editable={false}
 					style={inputStyle}
 					placeholder="123456"
 					onChangeText={() => console.log('changed!')}
