@@ -15,7 +15,8 @@ const styles = {
 	buttonRowStyle: {
 		flexDirection: 'row',
 		flexWrap: 'wrap',
-		justifyContent: 'space-between'
+		justifyContent: 'space-between',
+		flex: 1
 	}
 };
 

@@ -7,22 +7,21 @@ import ButtonSection from './ButtonSection';
 class Calculator extends Component {
 	render() {
 		return (
-			<Card>
+			<Card style={{ flex: 1, flexDirection: 'column'}}>
 				<CardSection>
 					<InputSection />
 				</CardSection>
 
-				<View 
+				<CardSection 
 				style={{
 						flexDirection: 'column', 
-						justifyContent: 'flex-start', 
-						position: 'absolute',
-						borderWidth: 2,
-						borderColor: 'red'
+						justifyContent: 'flex-end',
+						flex: 1,
+						position: 'relative',
 					}}
 				>
 					<ButtonSection />
-				</View>
+				</CardSection>
 			</Card>
 		);
 	}

@@ -8,6 +8,13 @@ class ButtonSection extends Component {
 		return (
 			<View style={styles.containerStyle}> 
 				<ButtonRow>
+					<CalcButton buttonDisplay="sin" />
+					<CalcButton buttonDisplay="cos" />
+					<CalcButton buttonDisplay="x^y" />
+					<CalcButton buttonDisplay="sqrt" />
+				</ButtonRow>
+
+				<ButtonRow>
 					<CalcButton buttonDisplay="7" />
 					<CalcButton buttonDisplay="8" />
 					<CalcButton buttonDisplay="9" />
@@ -41,10 +48,10 @@ class ButtonSection extends Component {
 
 const styles = {
 	containerStyle: {
-		flex: 1,
 		flexDirection: 'column',
 		position: 'relative',
-		justifyContent: 'flex-start'
+		justifyContent: 'space-between',
+		flex: 1
 	}
 };
 

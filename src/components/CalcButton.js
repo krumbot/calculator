@@ -26,11 +26,11 @@ const styles = {
 		borderColor: '#007aff',
 		paddingTop: 2,
 		paddingBottom: 2,
-		height: 75,		
-		width: 75
+		flexDirection: 'row',
+		flex: 1
 	},
 	textStyle: {
-		fontSize: 32,
+		fontSize: 24,
 		paddingTop: 10,
 		paddingBottom: 10
 	}
