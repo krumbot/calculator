@@ -1,17 +1,24 @@
-import { DISPLAY_VALUE_CHANGED } from '../actions/types';
+import { NUMERIC_PRESS, CLEAR_PRESS } from '../actions/types';
 
 const initialState = {
-	currentValue: '',
-	storedValue: 0
+	displayValue: '',
+	calculatedValue: '',
+	operator: ''
 };
 
 export default (state = initialState, action) => {
 	switch (action.type) {
-		case DISPLAY_VALUE_CHANGED:
-		console.log(action.payload);
-		console.log(state);
-			return { ...state, currentValue: state.currentValue + action.payload };
+		case NUMERIC_PRESS:
+			return { 
+				...state, 
+				displayValue: state.displayValue + action.payload,
+				calculatedValue: eval(state.displayValue + action.payload),
+				operator: ''
+			};
+		case CLEAR_PRESS:
+			return { ...initialState };
 		default:
 			return state;
 	}
 };
+

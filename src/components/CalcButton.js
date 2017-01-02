@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, TouchableOpacity } from 'react-native';
-import { numericPress } from '../actions';
+import { numericPress, clearPress } from '../actions';
 
 class CalcButton extends Component {
 
 
 	componentWillMount() {
-		if (!this.props.buttonType || this.props.buttonType === 'numeric') {
-			this.onButtonPress = this.numericButtonPress;
+		const { buttonType } = this.props;
+		switch (buttonType) {
+			default:
+				this.onButtonPress = this.numericButtonPress;
+				break;
+			case 'NUMERIC':
+				this.onButtonPress = this.numericButtonPress;
+				break;
+			case 'CLEAR':
+				this.onButtonPress = this.clearButtonPress;
+				break;
 		}
 	}
 
@@ -16,8 +25,12 @@ class CalcButton extends Component {
 		this.props.numericPress({ value: this.props.buttonDisplay });
 	}
 
+	clearButtonPress() {
+		this.props.clearPress();
+	}
+
 	render() {
-		const { buttonDisplay, buttonValue } = this.props;
+		const { buttonDisplay } = this.props;
 		const { buttonStyle, textStyle } = styles;
 		return (
 			<TouchableOpacity 
@@ -48,4 +61,4 @@ const styles = {
 	}
 };
 
-export default connect(null, { numericPress })(CalcButton);
+export default connect(null, { numericPress, clearPress })(CalcButton);

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 class InputSection extends Component {
 	render() {
+		console.log(this.props);
 		const { containerStyle, inputStyle } = styles;
 		return (
 			<View style={containerStyle}>
@@ -11,7 +12,7 @@ class InputSection extends Component {
 					editable={false}
 					style={inputStyle}
 					placeholder="123456"
-					value={this.props.currentValue}
+					value={this.props.displayValue}
 					onChangeText={() => console.log('changed!')}
 				/>
 			</View>
@@ -34,8 +35,10 @@ const styles = {
 };
 
 const mapStateToProps = state => {
-	console.log(state);
-	return { currentValue: state.calculator.currentValue };
+	return { 
+		displayValue: state.calculator.displayValue, 
+		calculatedValue: state.calculator.calculatedValue 
+	};
 };
 
 export default connect(mapStateToProps, null)(InputSection);

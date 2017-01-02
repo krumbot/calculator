@@ -9,28 +9,28 @@ class ButtonSection extends Component {
 		return (
 			<View style={containerStyle}> 
 				<ButtonRow>
-					<CalcButton buttonDisplay="7" />
-					<CalcButton buttonDisplay="4" />
-					<CalcButton buttonDisplay="1" />
+					<CalcButton buttonDisplay="7" buttonType="NUMERIC" />
+					<CalcButton buttonDisplay="4" buttonType="NUMERIC" />
+					<CalcButton buttonDisplay="1" buttonType="NUMERIC" />
 					<CalcButton buttonDisplay="." />
 				</ButtonRow>
 
 				<ButtonRow>
-					<CalcButton buttonDisplay="8" />
-					<CalcButton buttonDisplay="5" />
-					<CalcButton buttonDisplay="2" />
+					<CalcButton buttonDisplay="8" buttonType="NUMERIC" />
+					<CalcButton buttonDisplay="5" buttonType="NUMERIC" />
+					<CalcButton buttonDisplay="2" buttonType="NUMERIC" />
 					<CalcButton buttonDisplay="0" />
 				</ButtonRow>
 
 				<ButtonRow>
-					<CalcButton buttonDisplay="9" />
-					<CalcButton buttonDisplay="6" />
-					<CalcButton buttonDisplay="3" />
+					<CalcButton buttonDisplay="9" buttonType="NUMERIC" />
+					<CalcButton buttonDisplay="6" buttonType="NUMERIC" />
+					<CalcButton buttonDisplay="3" buttonType="NUMERIC" />
 					<CalcButton buttonDisplay="=" />
 				</ButtonRow>
 
 				<ButtonRow style={rightRowStyle}>
-					<CalcButton buttonDisplay="C" />
+					<CalcButton buttonDisplay="C" buttonType="CLEAR" />
 					<CalcButton buttonDisplay="÷" />
 					<CalcButton buttonDisplay="x" />
 					<CalcButton buttonDisplay="+" />

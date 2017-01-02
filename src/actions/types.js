@@ -1,1 +1,2 @@
-export const DISPLAY_VALUE_CHANGED = 'display_value_changed';
+export const NUMERIC_PRESS = 'numeric_press';
+export const CLEAR_PRESS = 'clear_press';
