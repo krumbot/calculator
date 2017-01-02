@@ -23,7 +23,6 @@ class InputSection extends Component {
 	}
 
 	render() {
-		console.log(this.props);
 		const { containerStyle, displayStyle } = styles;
 		return (
 			<View style={containerStyle}>
@@ -65,11 +64,12 @@ const styles = {
 };
 
 const mapStateToProps = state => {
+	const { displayValue, calculatedValue, calculatedChange, reset } = state.calculator;
 	return { 
-		displayValue: state.calculator.displayValue, 
-		calculatedValue: state.calculator.calculatedValue,
-		calculatedChange: state.calculator.calculatedChange,
-		reset: state.calculator.reset
+		displayValue,
+		calculatedValue,
+		calculatedChange,
+		reset
 	};
 };
 
