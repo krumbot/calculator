@@ -28,6 +28,19 @@ export default (state = initialState, action) => {
 					reset: false
 				};
 			}
+
+			if (state.operator && action.payload === '.') {
+				return {
+					...state,
+					displayValue: state.displayValue + action.payload,
+					trueValue: state.trueValue + '0' + action.payload,
+					calculatedValue: eval(state.trueValue + '0' + action.payload),
+					calculatedChange: false,
+					operator: '',
+					reset: false
+				};
+			}
+
 			return { 
 				...state, 
 				displayValue: state.displayValue + action.payload,
@@ -49,6 +62,16 @@ export default (state = initialState, action) => {
 				reset: true
 			};
 		case OPERATOR_PRESS:
+			if (state.operator) {
+				return {
+					...state,
+					displayValue: state.displayValue.slice(0, -1) + action.payload.display,
+					trueValue: state.trueValue.slice(0, -1) + action.payload.value,
+					operator: action.payload,
+					calculatedChange: false,
+					reset: false
+				};				
+			}
 			return {
 				...state,
 				displayValue: state.displayValue + action.payload.display,

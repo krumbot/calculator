@@ -30,14 +30,16 @@ class InputSection extends Component {
 				<TextInput 
 					editable={false}
 					style={displayStyle}
-					placeholder="123456"
+					placeholder="1234"
 					value={this.props.displayValue}
+					adjustsFontSizeToFit
 				/>
 				<TextInput
 					editable={false}
-					style={displayStyle}
+					style={{ ...displayStyle, fontSize: 24 }}
 					placeholder=""
 					value={this.renderCalculatedValue()}
+					adjustsFontSizeToFit
 				/>
 			</View>
 		);
@@ -50,7 +52,8 @@ const styles = {
 		paddingRight: 5,
 		paddingLeft: 5,
 		textAlign: 'right',
-		fontSize: 32,
+		fontSize: 36,
+		margin: 20
 	},
 	containerStyle: {
 		height: 40,
