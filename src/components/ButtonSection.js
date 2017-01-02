@@ -5,51 +5,98 @@ import CalcButton from './CalcButton';
 
 class ButtonSection extends Component {
 	render() {
-		const { containerStyle, rightRowStyle } = styles;
+		const { 
+			containerStyle, 
+			staticSectionStyle, 
+			rightRowStyle, 
+			functionRowStyle, 
+			functionSectionStyle 
+		} = styles;
 		return (
-			<View style={containerStyle}> 
-				<ButtonRow>
-					<CalcButton buttonDisplay="7" buttonType="NUMERIC" />
-					<CalcButton buttonDisplay="4" buttonType="NUMERIC" />
-					<CalcButton buttonDisplay="1" buttonType="NUMERIC" />
-					<CalcButton buttonDisplay="." buttonType="NUMERIC"/>
-				</ButtonRow>
+			<View style={containerStyle}>
+				<View style={functionSectionStyle}>
+					<ButtonRow style={functionRowStyle}>
+						<CalcButton 
+							buttonDisplay="sin()" 
+							inputDisplay="sin(" 
+							buttonValue="Math.sin(" 
+							buttonType="FUNCTION" 
+						/>
+						<CalcButton 
+							buttonDisplay="cos()" 
+							inputDisplay="cos(" 
+							buttonValue="Math.cos(" 
+							buttonType="FUNCTION" 
+						/>
+						<CalcButton 
+							buttonDisplay="(" 
+							buttonType="FUNCTION"
+						/>
+						<CalcButton 
+							buttonDisplay=")" 
+							buttonType="FUNCTION"
+						/>						
+					</ButtonRow>
+				</View>
 
-				<ButtonRow>
-					<CalcButton buttonDisplay="8" buttonType="NUMERIC" />
-					<CalcButton buttonDisplay="5" buttonType="NUMERIC" />
-					<CalcButton buttonDisplay="2" buttonType="NUMERIC" />
-					<CalcButton buttonDisplay="0" buttonType="NUMERIC"/>
-				</ButtonRow>
+				<View style={staticSectionStyle}> 
+					<ButtonRow>
+						<CalcButton buttonDisplay="7" buttonType="NUMERIC" />
+						<CalcButton buttonDisplay="4" buttonType="NUMERIC" />
+						<CalcButton buttonDisplay="1" buttonType="NUMERIC" />
+						<CalcButton buttonDisplay="." buttonType="NUMERIC" />
+					</ButtonRow>
 
-				<ButtonRow>
-					<CalcButton buttonDisplay="9" buttonType="NUMERIC" />
-					<CalcButton buttonDisplay="6" buttonType="NUMERIC" />
-					<CalcButton buttonDisplay="3" buttonType="NUMERIC" />
-					<CalcButton buttonDisplay="=" buttonType="EQUALS" />
-				</ButtonRow>
+					<ButtonRow>
+						<CalcButton buttonDisplay="8" buttonType="NUMERIC" />
+						<CalcButton buttonDisplay="5" buttonType="NUMERIC" />
+						<CalcButton buttonDisplay="2" buttonType="NUMERIC" />
+						<CalcButton buttonDisplay="0" buttonType="NUMERIC" />
+					</ButtonRow>
 
-				<ButtonRow style={rightRowStyle}>
-					<CalcButton buttonDisplay="C" buttonType="CLEAR" />
-					<CalcButton buttonDisplay="÷" buttonValue="/" buttonType="OPERATOR" />
-					<CalcButton buttonDisplay="x" buttonValue="*" buttonType="OPERATOR" />
-					<CalcButton buttonDisplay="+" buttonType="OPERATOR" />
-					<CalcButton buttonDisplay="-" buttonType="OPERATOR" />
-				</ButtonRow>
+					<ButtonRow>
+						<CalcButton buttonDisplay="9" buttonType="NUMERIC" />
+						<CalcButton buttonDisplay="6" buttonType="NUMERIC" />
+						<CalcButton buttonDisplay="3" buttonType="NUMERIC" />
+						<CalcButton buttonDisplay="=" buttonType="EQUALS" />
+					</ButtonRow>
+
+					<ButtonRow style={rightRowStyle}>
+						<CalcButton buttonDisplay="C" buttonType="CLEAR" style={{ backgroundColor: 'gray' }} />
+						<CalcButton buttonDisplay="÷" buttonValue="/" buttonType="OPERATOR" />
+						<CalcButton buttonDisplay="x" buttonValue="*" buttonType="OPERATOR" />
+						<CalcButton buttonDisplay="+" buttonType="OPERATOR" />
+						<CalcButton buttonDisplay="-" buttonType="OPERATOR" />
+					</ButtonRow>
+				</View>
 			</View>
 		);
 	}
 }
 
 const styles = {
-	containerStyle: {
+	staticSectionStyle: {
 		flexDirection: 'row',
 		position: 'relative',
 		justifyContent: 'space-around',
-		flex: 1
+		flex: 7
 	},
 	rightRowStyle: {
 		backgroundColor: '#bfbfbf'
+	},
+	containerStyle: {
+		flexDirection: 'column',
+		position: 'relative',
+		flex: 1
+	}, 
+	functionRowStyle: {
+		flexDirection: 'row',
+		backgroundColor: '#bfbfbf'
+
+	}, 
+	functionSectionStyle: {
+		flexDirection: 'column',
+		flex: 1
 	}
 };
 

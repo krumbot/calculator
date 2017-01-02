@@ -5,7 +5,8 @@ import {
 	numericPress, 
 	clearPress, 
 	equalsPress,
-	operatorPress
+	operatorPress,
+	functionPress
 } from '../actions';
 
 class CalcButton extends Component {
@@ -28,6 +29,10 @@ class CalcButton extends Component {
 				break;
 			case 'OPERATOR': 
 				this.onButtonPress = this.operatorButtonPress;
+				break;
+			case 'FUNCTION':
+				this.onButtonPress = this.functionButtonPress;
+				break;
 		}
 	}
 
@@ -48,6 +53,12 @@ class CalcButton extends Component {
 		this.props.operatorPress({ display: this.props.buttonDisplay, value });
 	}
 
+	functionButtonPress() {
+		const display = this.props.inputDisplay ? this.props.inputDisplay : this.props.buttonDisplay;
+		const value = this.props.buttonValue ? this.props.buttonValue : this.props.buttonDisplay;
+		this.props.functionPress({ display, value });
+	}
+
 	render() {
 		const { buttonDisplay } = this.props;
 		const { buttonStyle, textStyle } = styles;
@@ -66,16 +77,14 @@ class CalcButton extends Component {
 
 const styles = {
 	buttonStyle: {
-		paddingTop: 2,
-		paddingBottom: 2,
 		flexDirection: 'row',
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center'
 	},
 	textStyle: {
-		fontSize: 24
+		fontSize: 20
 	}
 };
 
-export default connect(null, { numericPress, clearPress, equalsPress, operatorPress })(CalcButton);
+export default connect(null, { numericPress, clearPress, equalsPress, operatorPress, functionPress })(CalcButton);

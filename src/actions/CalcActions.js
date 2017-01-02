@@ -2,7 +2,8 @@ import {
 	NUMERIC_PRESS, 
 	CLEAR_PRESS, 
 	EQUALS_PRESS,
-	OPERATOR_PRESS
+	OPERATOR_PRESS,
+	FUNCTION_PRESS
 } from './types';
 
 export const numericPress = ({ display }) => {
@@ -27,6 +28,13 @@ export const equalsPress = () => {
 export const operatorPress = ({ display, value }) => {
 	return {
 		type: OPERATOR_PRESS,
+		payload: { display, value }
+	};
+};
+
+export const functionPress = ({ display, value }) => {
+	return {
+		type: FUNCTION_PRESS,
 		payload: { display, value }
 	};
 };

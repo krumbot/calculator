@@ -7,6 +7,7 @@ class Calculator extends Component {
 	render() {
 		return (
 			<Card style={{ flex: 1, flexDirection: 'column' }}>
+
 				<CardSection style={{ flex: 1 }}>
 					<InputSection />
 				</CardSection>
@@ -16,7 +17,7 @@ class Calculator extends Component {
 						flexDirection: 'column', 
 						justifyContent: 'flex-end',
 						flex: 2,
-						position: 'relative',
+						position: 'relative'
 					}}
 				>
 					<ButtonSection />
