@@ -1,15 +1,44 @@
 import React, { Component } from 'react';
 import { TextInput, View } from 'react-native';
+import { connect } from 'react-redux';
 
 class InputSection extends Component {
+	componentWillMount() {
+		this.shownValue = '';
+		this.renderCalculatedValue();
+	}
+
+	renderCalculatedValue() {
+		const { displayValue, calculatedValue, calculatedChange, reset } = this.props;
+		if (calculatedChange && (displayValue.toString() !== calculatedValue.toString())) {
+			console.log('changed');
+			this.shownValue = calculatedValue.toString();
+			return this.shownValue;
+		} 
+		if (reset) {
+			this.shownValue = '';
+		}
+
+		return this.shownValue;
+	}
+
 	render() {
-		const { containerStyle, inputStyle } = styles;
+		const { containerStyle, displayStyle } = styles;
 		return (
 			<View style={containerStyle}>
 				<TextInput 
-					style={inputStyle}
-					placeholder="123456"
-					onChangeText={() => console.log('changed!')}
+					editable={false}
+					style={displayStyle}
+					placeholder="1234"
+					value={this.props.displayValue}
+					adjustsFontSizeToFit
+				/>
+				<TextInput
+					editable={false}
+					style={{ ...displayStyle, fontSize: 28 }}
+					placeholder=""
+					value={this.renderCalculatedValue()}
+					adjustsFontSizeToFit
 				/>
 			</View>
 		);
@@ -17,19 +46,31 @@ class InputSection extends Component {
 }
 
 const styles = {
-	inputStyle: {
+	displayStyle: {
 		color: '#000',
 		paddingRight: 5,
 		paddingLeft: 5,
-		fontSize: 18,
-		lineHeight: 23,
-		flex: 1
+		textAlign: 'right',
+		fontSize: 36,
+		margin: 25
 	},
 	containerStyle: {
-		height: 40,
 		flex: 1,
-		flexDirection: 'row'
+		flexDirection: 'column',
+		paddingTop: 5,
+		paddingBottom: 5,
+		justifyContent: 'space-around'
 	}
 };
 
-export default InputSection;
+const mapStateToProps = state => {
+	const { displayValue, calculatedValue, calculatedChange, reset } = state.calculator;
+	return { 
+		displayValue,
+		calculatedValue,
+		calculatedChange,
+		reset
+	};
+};
+
+export default connect(mapStateToProps, null)(InputSection);
