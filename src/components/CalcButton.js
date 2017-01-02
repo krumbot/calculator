@@ -4,7 +4,8 @@ import { Text, TouchableOpacity } from 'react-native';
 import { 
 	numericPress, 
 	clearPress, 
-	equalsPress 
+	equalsPress,
+	operatorPress
 } from '../actions';
 
 class CalcButton extends Component {
@@ -24,11 +25,14 @@ class CalcButton extends Component {
 				break;
 			case 'EQUALS':
 				this.onButtonPress = this.equalsButtonPress;
+				break;
+			case 'OPERATOR': 
+				this.onButtonPress = this.operatorButtonPress;
 		}
 	}
 
 	numericButtonPress() {
-		this.props.numericPress({ value: this.props.buttonDisplay });
+		this.props.numericPress({ display: this.props.buttonDisplay });
 	}
 
 	clearButtonPress() {
@@ -37,6 +41,11 @@ class CalcButton extends Component {
 
 	equalsButtonPress() {
 		this.props.equalsPress();
+	}
+
+	operatorButtonPress() {
+		const value = this.props.buttonValue ? this.props.buttonValue : this.props.buttonDisplay;
+		this.props.operatorPress({ display: this.props.buttonDisplay, value });
 	}
 
 	render() {
@@ -71,4 +80,4 @@ const styles = {
 	}
 };
 
-export default connect(null, { numericPress, clearPress, equalsPress })(CalcButton);
+export default connect(null, { numericPress, clearPress, equalsPress, operatorPress })(CalcButton);

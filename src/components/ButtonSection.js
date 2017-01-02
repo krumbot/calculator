@@ -31,10 +31,10 @@ class ButtonSection extends Component {
 
 				<ButtonRow style={rightRowStyle}>
 					<CalcButton buttonDisplay="C" buttonType="CLEAR" />
-					<CalcButton buttonDisplay="÷" />
-					<CalcButton buttonDisplay="x" />
-					<CalcButton buttonDisplay="+" />
-					<CalcButton buttonDisplay="-" />
+					<CalcButton buttonDisplay="÷" buttonValue="/" buttonType="OPERATOR" />
+					<CalcButton buttonDisplay="x" buttonValue="*" buttonType="OPERATOR" />
+					<CalcButton buttonDisplay="+" buttonType="OPERATOR" />
+					<CalcButton buttonDisplay="-" buttonType="OPERATOR" />
 				</ButtonRow>
 			</View>
 		);
