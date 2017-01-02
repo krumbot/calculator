@@ -26,7 +26,7 @@ class ButtonSection extends Component {
 					<CalcButton buttonDisplay="9" buttonType="NUMERIC" />
 					<CalcButton buttonDisplay="6" buttonType="NUMERIC" />
 					<CalcButton buttonDisplay="3" buttonType="NUMERIC" />
-					<CalcButton buttonDisplay="=" />
+					<CalcButton buttonDisplay="=" buttonType="EQUALS" />
 				</ButtonRow>
 
 				<ButtonRow style={rightRowStyle}>

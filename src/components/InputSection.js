@@ -37,7 +37,8 @@ const styles = {
 const mapStateToProps = state => {
 	return { 
 		displayValue: state.calculator.displayValue, 
-		calculatedValue: state.calculator.calculatedValue 
+		calculatedValue: state.calculator.calculatedValue,
+		operator: state.calculator.operator
 	};
 };
 

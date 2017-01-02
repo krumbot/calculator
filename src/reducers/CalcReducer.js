@@ -1,4 +1,8 @@
-import { NUMERIC_PRESS, CLEAR_PRESS } from '../actions/types';
+import { 
+	NUMERIC_PRESS,
+	CLEAR_PRESS,
+	EQUALS_PRESS 
+} from '../actions/types';
 
 const initialState = {
 	displayValue: '',
@@ -17,6 +21,13 @@ export default (state = initialState, action) => {
 			};
 		case CLEAR_PRESS:
 			return { ...initialState };
+		case EQUALS_PRESS:
+			console.log('equals press');
+			return { 
+				...state,
+				displayValue: state.calculatedValue.toString(),
+				operator: ''
+			};
 		default:
 			return state;
 	}

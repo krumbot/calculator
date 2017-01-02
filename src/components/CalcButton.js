@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, TouchableOpacity } from 'react-native';
-import { numericPress, clearPress } from '../actions';
+import { 
+	numericPress, 
+	clearPress, 
+	equalsPress 
+} from '../actions';
 
 class CalcButton extends Component {
 
@@ -18,6 +22,8 @@ class CalcButton extends Component {
 			case 'CLEAR':
 				this.onButtonPress = this.clearButtonPress;
 				break;
+			case 'EQUALS':
+				this.onButtonPress = this.equalsButtonPress;
 		}
 	}
 
@@ -27,6 +33,10 @@ class CalcButton extends Component {
 
 	clearButtonPress() {
 		this.props.clearPress();
+	}
+
+	equalsButtonPress() {
+		this.props.equalsPress();
 	}
 
 	render() {
@@ -61,4 +71,4 @@ const styles = {
 	}
 };
 
-export default connect(null, { numericPress, clearPress })(CalcButton);
+export default connect(null, { numericPress, clearPress, equalsPress })(CalcButton);

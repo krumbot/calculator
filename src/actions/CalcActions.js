@@ -1,4 +1,8 @@
-import { NUMERIC_PRESS, CLEAR_PRESS } from './types';
+import { 
+	NUMERIC_PRESS, 
+	CLEAR_PRESS, 
+	EQUALS_PRESS 
+} from './types';
 
 export const numericPress = ({ value }) => {
 	return {
@@ -10,5 +14,11 @@ export const numericPress = ({ value }) => {
 export const clearPress = () => {
 	return {
 		type: CLEAR_PRESS
+	};
+};
+
+export const equalsPress = () => {
+	return {
+		type: EQUALS_PRESS
 	};
 };
