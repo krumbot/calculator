@@ -36,7 +36,7 @@ class InputSection extends Component {
 				/>
 				<TextInput
 					editable={false}
-					style={{ ...displayStyle, fontSize: 24 }}
+					style={{ ...displayStyle, fontSize: 28 }}
 					placeholder=""
 					value={this.renderCalculatedValue()}
 					adjustsFontSizeToFit
@@ -53,14 +53,14 @@ const styles = {
 		paddingLeft: 5,
 		textAlign: 'right',
 		fontSize: 36,
-		margin: 20
+		margin: 25
 	},
 	containerStyle: {
-		height: 40,
 		flex: 1,
 		flexDirection: 'column',
-		paddingTop: 20,
-		justifyContent: 'space-between'
+		paddingTop: 5,
+		paddingBottom: 5,
+		justifyContent: 'space-around'
 	}
 };
 

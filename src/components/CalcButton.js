@@ -74,9 +74,7 @@ const styles = {
 		justifyContent: 'center'
 	},
 	textStyle: {
-		fontSize: 24,
-		paddingTop: 10,
-		paddingBottom: 10
+		fontSize: 24
 	}
 };
 
