@@ -15,7 +15,7 @@ class Calculator extends Component {
 				style={{
 						flexDirection: 'column', 
 						justifyContent: 'flex-end',
-						flex: 5,
+						flex: 2,
 						position: 'relative',
 					}}
 				>
