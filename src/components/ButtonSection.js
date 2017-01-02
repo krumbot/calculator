@@ -12,14 +12,14 @@ class ButtonSection extends Component {
 					<CalcButton buttonDisplay="7" buttonType="NUMERIC" />
 					<CalcButton buttonDisplay="4" buttonType="NUMERIC" />
 					<CalcButton buttonDisplay="1" buttonType="NUMERIC" />
-					<CalcButton buttonDisplay="." />
+					<CalcButton buttonDisplay="." buttonType="NUMERIC"/>
 				</ButtonRow>
 
 				<ButtonRow>
 					<CalcButton buttonDisplay="8" buttonType="NUMERIC" />
 					<CalcButton buttonDisplay="5" buttonType="NUMERIC" />
 					<CalcButton buttonDisplay="2" buttonType="NUMERIC" />
-					<CalcButton buttonDisplay="0" />
+					<CalcButton buttonDisplay="0" buttonType="NUMERIC"/>
 				</ButtonRow>
 
 				<ButtonRow>

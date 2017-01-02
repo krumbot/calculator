@@ -9,8 +9,9 @@ const initialState = {
 	displayValue: '',
 	trueValue: '',
 	calculatedValue: '',
+	calculatedChange: false,
 	operator: '',
-	reset: false
+	reset: true
 };
 
 export default (state = initialState, action) => {
@@ -22,6 +23,7 @@ export default (state = initialState, action) => {
 					displayValue: action.payload,
 					trueValue: action.payload,
 					calculatedValue: eval(action.payload),
+					calculatedChange: true,
 					operator: '',
 					reset: false
 				};
@@ -31,6 +33,7 @@ export default (state = initialState, action) => {
 				displayValue: state.displayValue + action.payload,
 				trueValue: state.trueValue + action.payload,
 				calculatedValue: eval(state.trueValue + action.payload),
+				calculatedChange: true,
 				operator: '',
 				reset: false
 			};
@@ -42,6 +45,7 @@ export default (state = initialState, action) => {
 				displayValue: state.calculatedValue.toString(),
 				trueValue: state.calculatedValue.toString(),
 				operator: '',
+				calculatedChange: false,
 				reset: true
 			};
 		case OPERATOR_PRESS:
@@ -50,6 +54,7 @@ export default (state = initialState, action) => {
 				displayValue: state.displayValue + action.payload.display,
 				trueValue: state.trueValue + action.payload.value,
 				operator: action.payload,
+				calculatedChange: false,
 				reset: false
 			};
 		default:
