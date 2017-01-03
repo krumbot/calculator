@@ -3,7 +3,8 @@ import {
 	CLEAR_PRESS,
 	EQUALS_PRESS,
 	OPERATOR_PRESS,
-	FUNCTION_PRESS
+	FUNCTION_PRESS,
+	RESET_TOGGLE
 } from '../actions/types';
 
 const initialState = {
@@ -17,13 +18,40 @@ const initialState = {
 
 
 const calculate = expression => {
-	return eval(expression);
+	let expr = expression;
+	const missingStack = missingParenthesis(expr);
+	if (missingStack.length > 0) {
+		missingStack.forEach(() => {
+			expr += ')';
+		});
+	} 
+	try {
+		return eval(expr);
+	}
+	catch (e) {
+		return 'BAD_EXPRESSION';
+	}
+};
+
+const missingParenthesis = string => {
+	const stack = [];
+	string.split('').forEach(character => {
+		if (character === '(') {
+			stack.push('(');
+		}
+		if (character === ')') {
+			stack.pop();
+		}
+	});
+	return stack;
 };
 
 export default (state = initialState, action) => {
+	console.log(state);
+	console.log(action.payload);
 	switch (action.type) {
 		case NUMERIC_PRESS:
-			if (state.reset) {
+			if (state.reset || state.calculatedValue === 'BAD_EXPRESSION') {
 				return {
 					...state,
 					displayValue: action.payload,
@@ -87,7 +115,8 @@ export default (state = initialState, action) => {
 				reset: false
 			};
 		case FUNCTION_PRESS:
-			if (!state.operator) {
+			if (!state.operator && action.payload.value !== ')') {
+				console.log('HIT');
 				return {
 					...state,
 					displayValue: state.displayValue + action.payload.display,

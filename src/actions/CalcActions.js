@@ -3,7 +3,8 @@ import {
 	CLEAR_PRESS, 
 	EQUALS_PRESS,
 	OPERATOR_PRESS,
-	FUNCTION_PRESS
+	FUNCTION_PRESS,
+	RESET_TOGGLE
 } from './types';
 
 export const numericPress = ({ display }) => {

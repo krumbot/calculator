@@ -1,45 +1,59 @@
 import React, { Component } from 'react';
-import { TextInput, View } from 'react-native';
+import { TextInput, View, Text } from 'react-native';
 import { connect } from 'react-redux';
 
 class InputSection extends Component {
 	componentWillMount() {
 		this.shownValue = '';
+		this.error = false;
 		this.renderCalculatedValue();
 	}
 
 	renderCalculatedValue() {
 		const { displayValue, calculatedValue, calculatedChange, reset } = this.props;
+
 		if (calculatedChange && (displayValue.toString() !== calculatedValue.toString())) {
-			console.log('changed');
 			this.shownValue = calculatedValue.toString();
 			return this.shownValue;
 		} 
-		if (reset) {
+		if (reset || this.error) {
+			console.log('hit if');
 			this.shownValue = '';
 		}
-
+		
 		return this.shownValue;
 	}
 
-	render() {
-		const { containerStyle, displayStyle } = styles;
+	renderInputs() {
+		if (this.props.calculatedValue === 'BAD_EXPRESSION') {
+			this.error = true;
+			return <Text style={styles.errorStyle}>Invalid Expression</Text>;
+		}
 		return (
-			<View style={containerStyle}>
+			<View>
 				<TextInput 
 					editable={false}
-					style={displayStyle}
+					style={styles.displayStyle}
 					placeholder="1234"
 					value={this.props.displayValue}
 					adjustsFontSizeToFit
 				/>
 				<TextInput
 					editable={false}
-					style={{ ...displayStyle, fontSize: 28 }}
+					style={{ ...styles.displayStyle, fontSize: 28 }}
 					placeholder=""
 					value={this.renderCalculatedValue()}
 					adjustsFontSizeToFit
-				/>
+				/>		
+			</View>	
+		);
+	}
+
+	render() {
+		console.log(this.error);
+		return (
+			<View style={styles.containerStyle}>
+				{this.renderInputs()}
 			</View>
 		);
 	}
@@ -60,6 +74,11 @@ const styles = {
 		paddingTop: 5,
 		paddingBottom: 5,
 		justifyContent: 'space-around'
+	},
+	errorStyle: {
+		fontSize: 24,
+		color: 'red',
+		textAlign: 'center'
 	}
 };
 
