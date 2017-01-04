@@ -48,7 +48,7 @@ const missingParenthesis = string => {
 
 export default (state = initialState, action) => {
 	console.log(state);
-	console.log(action.payload);
+	console.log(action);
 	switch (action.type) {
 		case NUMERIC_PRESS:
 			if (state.reset || state.calculatedValue === 'BAD_EXPRESSION') {
@@ -115,8 +115,9 @@ export default (state = initialState, action) => {
 				reset: false
 			};
 		case FUNCTION_PRESS:
-			if (!state.operator && action.payload.value !== ')') {
-				console.log('HIT');
+			if (!state.operator && action.payload.value !== ')' 
+				&&	state.trueValue.substring(state.trueValue.length - 1) !== '(' 
+				&& state.displayValue !== '') {
 				return {
 					...state,
 					displayValue: state.displayValue + action.payload.display,
