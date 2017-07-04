@@ -1,2 +1,2 @@
 # calculator
-React-Native Calculator App
+Simple calculator - my first React-Native App. Built with React Native and Redux.
